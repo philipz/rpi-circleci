@@ -4,6 +4,8 @@ services:
   broker:
     container_name: broker
     image: philipz/mosquitto
+    networks:
+      - mqtt
     ports:
       - "1883:1883"
 
@@ -12,6 +14,8 @@ services:
       - broker
     container_name: sub
     image: philipz/rpi-raspbian-mqtt
+    networks:
+      - mqtt
     command: qemu-arm-static /bin/sh -c 'mosquitto_sub -h broker -t /test'
 
 #  Pub:
