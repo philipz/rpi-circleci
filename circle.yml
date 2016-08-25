@@ -15,7 +15,8 @@ test:
     - chmod +x ./docker-compose
     - ./docker-compose -v
     - ./docker-compose up -d
-    - ./test.sh
+    - ./docker-compose ps
+###    - ./test.sh
     - docker logs sub  
 deployment:
   hub:
