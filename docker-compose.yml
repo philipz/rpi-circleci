@@ -11,23 +11,11 @@ services:
       - broker
     container_name: sub
     image: philipz/rpi-raspbian-mqtt
-    environment:
-      - QEMU_EXECVE=1
-    volumes:
-      - ./qemu/qemu-arm-static:/usr/bin/qemu-arm-static
-      - ./qemu/sh-shim:/usr/bin/sh-shim
-      - ./qemu/cross-build-start:/usr/bin/cross-build-start
-    command: cross-build-start && mosquitto_sub -h localhost -t /test
+    command: qemu-arm-static /bin/sh -c 'mosquitto_sub -h localhost -t /test'
 
   Pub:
     depends_on:
       - Sub
     container_name: pub
     image: philipz/rpi-raspbian-mqtt
-    environment:
-      - QEMU_EXECVE=1
-    volumes:
-      - ./qemu/qemu-arm-static:/usr/bin/qemu-arm-static
-      - ./qemu/sh-shim:/usr/bin/sh-shim
-      - ./qemu/cross-build-start:/usr/bin/cross-build-start
-    command: cross-build-start && mosquitto_pub -h localhost -t /test -m Hello_World,Philipz!
+    command: qemu-arm-static /bin/sh -c 'mosquitto_pub -h localhost -t /test -m Hello_World,Philipz!'
