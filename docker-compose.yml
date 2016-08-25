@@ -15,4 +15,4 @@ services:
       - ./qemu/qemu-arm-static:/usr/bin/qemu-arm-static
       - ./qemu/sh-shim:/usr/bin/sh-shim
       - ./qemu/cross-build-start:/usr/bin/cross-build-start
-    command: mosquitto_sub -h localhost -t /test
+    command: cross-build-start && mosquitto_sub -h localhost -t /test
