@@ -16,8 +16,7 @@ test:
     - ./docker-compose -v
     - ./docker-compose up -d
     - ./docker-compose ps
-#    - ./test.sh
-    - docker logs sub  
+    - ./test.sh
 deployment:
   hub:
     branch: master

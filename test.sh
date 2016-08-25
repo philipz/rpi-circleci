@@ -1,2 +1,9 @@
 #!/bin/bash
-docker run --network=rpicircleci_mqtt -ti --rm  philipz/rpi-raspbian-mqtt qemu-arm-static /bin/sh -c 'mosquitto_pub -h localhost -t /test -m "Hello World, Philipz!'
+string=$(docker logs sub);
+
+if [[ ${string} == *"Hello_World,Philipz!"* ]]; then
+  echo "Passed";
+  exit 0
+fi
+  echo "Failed"
+  exit 1
