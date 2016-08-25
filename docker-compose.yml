@@ -1,0 +1,12 @@
+version: "2"
+
+services:
+  broker:
+    image: philipz/mosquitto
+    ports:
+      - "1883:1883"
+
+  Sub:
+    container_name: sub
+    image: philipz/rpi-raspbian-mqtt
+    commnad: mosquitto -h localhost -t /test
