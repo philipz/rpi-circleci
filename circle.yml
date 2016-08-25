@@ -16,8 +16,7 @@ test:
     - ./docker-compose -v
     - ./docker-compose up -d
     - ./docker-compose ps
-    - docker network ls
-    - ./test.sh
+#    - ./test.sh
     - docker logs sub  
 deployment:
   hub:
