@@ -15,7 +15,6 @@ test:
     - chmod +x ./docker-compose
     - ./docker-compose -v
     - ./docker-compose up -d
-    - apt-get install qemu-user-static
     - ./test.sh
     - docker logs sub  
 deployment:

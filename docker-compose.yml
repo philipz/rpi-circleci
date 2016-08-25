@@ -9,4 +9,4 @@ services:
   Sub:
     container_name: sub
     image: philipz/rpi-raspbian-mqtt
-    commnad: mosquitto -h localhost -t /test
+    command: mosquitto_sub -h localhost -t /test
